@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Getting Started with Fetch API</h1>
+    <!-- Add button to send fetch request -->
+    <button id="btnFetch">Fetch User Data</button>
+    <hr>
+    <!-- div container to display response -->
+    <div id="response">
+
+    </div>
+
+    <script>
+
+        const fetchUserData = () => {
+
+            let requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            };
+            fetch('https://jsonplaceholder.typicode.com/users/', requestOptions)
+                .then(response => response.text())
+                .then(result => document.getElementById('response').innerHTML = result)
+                .catch(error => console.log('error', error));
+        };
+
+        document.getElementById('btnFetch').addEventListener('click', fetchUserData);
+
+    </script>
+
+</body>
+
+</html>
